@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nosso Impacto Visível</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <a href="#inicio" class="logo">
+        <span>🐾</span>
+        <span>Patas Solidárias</span>
+      </a>
+      <nav class="main-nav">
+        <a href="home.html">Home</a>
+        <a href="impacto.html">Impacto</a>
+        <a href="proposito.html">Propósito</a>
+        <a href="doacoes.html">Doações</a>
+        <a href="quemsomos.html">Quem Somos</a>
+        <a href="sejaUm.html">Seja uma pata amiga!</a>
+      </nav>
+      <button id="mobile-menu-button">☰</button>
+    </div>
+    <div id="mobile-menu">
+      <a href="home.html">Home</a>
+      <a href="impacto.html">Impacto</a>
+      <a href="proposito.html">Propósito</a>
+      <a href="doacoes.html">Doações</a>
+      <a href="quemsomos.html">Quem Somos</a>
+      <a href="sejaUm.html">Seja uma pata amiga!</a>
+    </div>
+  </header>
+
+  <main>
+
+    <section id="impacto">
+      <div class="container">
+        <h2 class="section-title">Nosso Impacto Visível</h2>
+        <p class="section-subtitle">A transparência é fundamental para nós. Aqui, você pode ver o crescimento das doações e o impacto real que sua ajuda proporciona. Cada barra no gráfico representa o esforço coletivo da nossa comunidade.</p>
+
+        <div class="chart-container">
+          <canvas id="impactChart"></canvas>
+        </div>
+
+        <div class="grid-container">
+          <div class="stats-card">
+            <h3 id="total-donated">7.5K kg</h3>
+            <p>Total Arrecadado</p>
+          </div>
+          <div class="stats-card">
+            <h3>+1.200</h3>
+            <p>Animais Alimentados</p>
+          </div>
+          <div class="stats-card">
+            <h3>+45</h3>
+            <p>Abrigos Parceiros</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p class="logo-footer">Patas Solidárias</p>
+      <div class="social-links">
+        <a href="#">Facebook</a>
+        <a href="#">Instagram</a>
+        <a href="#">Twitter</a>
+      </div>
+      <p>&copy; 2025 Patas Solidárias. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+  <script src="js/script.js"></script>
+
+</html>
