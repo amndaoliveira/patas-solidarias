@@ -99,3 +99,21 @@ function showFeedbackMessage() {
     feedbackMessage.style.transform = "translateY(2.5rem)";
   }, 3000);
 }
+
+const checkbox = document.getElementById("toggle-theme");
+
+const temaSalvo = localStorage.getItem("tema");
+if (temaSalvo === "escuro") {
+  document.body.classList.add("dark");
+  checkbox.checked = true;
+}
+
+checkbox.addEventListener("change", () => {
+  if (checkbox.checked) {
+    document.body.classList.add("dark");
+    localStorage.setItem("tema", "escuro");
+  } else {
+    document.body.classList.remove("dark");
+    localStorage.setItem("tema", "claro");
+  }
+});

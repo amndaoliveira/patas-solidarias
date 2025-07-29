@@ -458,3 +458,67 @@ footer p:last-child {
     grid-template-columns: repeat(3, 1fr);
   }
 }
+
+.dark {
+  --color-amber-500: #fbbf24; /* amarelo quente */
+  --color-amber-600: #f59e0b; /* âmbar */
+  --color-gray-50: #1e1b16; /* fundo geral */
+  --color-gray-200: #292524; /* fundo containers */
+  --color-gray-600: #d6d3d1; /* texto principal */
+  --color-gray-700: #e7e5e4; /* texto forte */
+  --color-gray-800: #fafaf9; /* título claro */
+  --color-white: #fefce8; /* para botões e ícones */
+  --color-black: #000000;
+  --color-green-500: #4ade80;
+}
+body.dark {
+  background-color: var(--color-gray-50);
+  color: var(--color-gray-800);
+}
+.dark header {
+  background-color: rgba(30, 27, 22, 0.9); /* transparente e escuro */
+}
+.dark footer {
+  background-color: var(--color-gray-200);
+  color: var(--color-gray-700);
+}
+
+.dark .main-nav a,
+.dark #mobile-menu a,
+.dark .logo {
+  color: var(--color-gray-600);
+}
+
+.dark .main-nav .nav-button,
+.dark #mobile-menu .nav-button,
+.dark .cta-button {
+  background-color: var(--color-amber-600);
+  color: var(--color-white);
+}
+.theme-switch {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 100;
+}
+.theme-toggle {
+  background: var(--bg-primary);
+  border: 2px solid var(--border);
+  color: var(--text-primary);
+  padding: 0.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1.2rem;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.theme-toggle:hover {
+  background: var(--accent);
+  color: white;
+  transform: rotate(180deg);
+}
