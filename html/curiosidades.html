@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quem Somos - Patas Solidárias</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <a href="#inicio" class="logo">
+        <span>🐾</span>
+        <span>Patas Solidárias</span>
+      </a>
+      <nav class="main-nav">
+        <a href="/html/home.html">Home</a>
+        <a href="/html/impacto.html">Impacto</a>
+        <a href="/html/proposito.html">Propósito</a>
+        <a href="/html/doacoes.html">Doações</a>
+        <a href="/html/curiosidades.html">Curiosidades</a>
+        <a href="/html/quemsomos.html">Quem Somos</a>
+        <a href="/html/sejaUm.html">Seja uma pata amiga!</a>
+      </nav>
+      <button id="themeToggle" class="theme-toggle" onclick="toggleTheme()">🌙</button>
+      <button id="mobile-menu-button">☰</button>
+    </div>
+    <div id="mobile-menu">
+      <a href="/html/home.html">Home</a>
+      <a href="/html/impacto.html">Impacto</a>
+      <a href="/html/proposito.html">Propósito</a>
+      <a href="/html/doacoes.html">Doações</a>
+      <a href="/html/curiosidades.html">Curiosidades</a>
+      <a href="/html/quemsomos.html">Quem Somos</a>
+      <a href="/html/sejaUm.html">Seja uma pata amiga!</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <h1>🐾 Fatos Divertidos de Animais 🐾</h1>
+      <p id="fact">Clique em um botão para ver um fato divertido!</p>
+
+      <button onclick="getAnimalFact('cat')">Fato de Gato 🐱</button>
+      <button onclick="getAnimalFact('dog')">Fato de Cachorro 🐶</button>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p class="logo-footer">Patas Solidárias</p>
+      <div class="social-links">
+        <a href="#">Facebook</a>
+        <a href="#">Instagram</a>
+        <a href="#">Twitter</a>
+      </div>
+      <p>&copy; 2025 Patas Solidárias. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="../js/script.js"></script>
+
+ <script>
+    // Lista de animais que a nossa API suporta
+    const animaisDisponiveis = ['dog', 'cat', 'panda', 'fox', 'bird', 'koala'];
+
+    // Função principal que agora espera a tradução para depois exibir
+    async function getAnimalFact(animal) {
+      const factElement = document.getElementById('fact');
+      // Mensagem de carregamento reflete que estamos buscando e traduzindo
+      factElement.innerText = `Buscando e traduzindo um fato sobre ${animal}... 🕐`;
+
+      const apiUrl = `https://some-random-api.com/facts/${animal}`;
+      const extractFact = data => data.fact;
+      
+      try {
+        // --- PASSO 1: Buscar o fato original ---
+        const response = await fetch(apiUrl);
+        if (!response.ok) {
+          throw new Error(`A API para '${animal}' falhou.`);
+        }
+        const data = await response.json();
+        const originalFact = extractFact(data);
+
+        // --- MUDANÇA PRINCIPAL: O FATO ORIGINAL NÃO É MAIS EXIBIDO AQUI ---
+
+        // --- PASSO 2: Traduzir o fato antes de exibir qualquer coisa ---
+        const encodedFact = encodeURIComponent(originalFact);
+        const translateResponse = await fetch(`https://api.mymemory.translated.net/get?q=${encodedFact}&langpair=en|pt-br`);
+        
+        if (!translateResponse.ok) {
+          throw new Error('A API de tradução falhou.');
+        }
+        
+        const translationData = await translateResponse.json();
+
+        // --- PASSO 3: Exibir o resultado final ---
+        if (translationData.responseData?.translatedText) {
+          // Se a tradução funcionou, exibe o texto traduzido
+          factElement.innerText = translationData.responseData.translatedText;
+        } else {
+          // Se a tradução falhou, exibe o original com um aviso
+          factElement.innerText = originalFact + " (Não foi possível traduzir)";
+        }
+
+      } catch (error) {
+        // Se QUALQUER passo acima falhar, exibe uma mensagem de erro geral
+        factElement.innerText = `Erro ao carregar o fato sobre '${animal}' 😿`;
+        console.error('Erro:', error);
+      }
+    }
+
+    // Esta função para o botão único continua a mesma
+    function gerarFatoAleatorio() {
+      const indiceAleatorio = Math.floor(Math.random() * animaisDisponiveis.length);
+      const animalSorteado = animaisDisponiveis[indiceAleatorio];
+      getAnimalFact(animalSorteado);
+    }
+  </script>
+</body>
+</html>
