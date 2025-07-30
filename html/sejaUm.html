@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
@@ -5,30 +6,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Seja uma Pata Amiga - Patas Solidárias</title>
   <link rel="stylesheet" href="../css/style.css">
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
   <header>
-    <header>
-      <div class="container">
-        <a href="#inicio" class="logo">
-          <span>🐾</span>
-          <span>Patas Solidárias</span>
-        </a>
-        <nav class="main-nav">
-          <a href="/html/home.html">Home</a>
-          <a href="/html/impacto.html">Impacto</a>
-          <a href="/html/proposito.html">Propósito</a>
-          <a href="/html/doacoes.html">Doações</a>
-          <a href="/html/curiosidades.html">Curiosidades</a>
-          <a href="/html/quemsomos.html">Quem Somos</a>
-          <a href="/html/sejaUm.html">Seja uma pata amiga!</a>
-        </nav>
-        <button id="themeToggle" class="theme-toggle" onclick="toggleTheme()">🌙</button>
-        <button id="mobile-menu-button">☰</button>
-      </div>
-      <div id="mobile-menu">
+    <div class="container">
+      <a href="#inicio" class="logo">
+        <span>🐾</span>
+        <span>Patas Solidárias</span>
+      </a>
+      <nav class="main-nav">
         <a href="/html/home.html">Home</a>
         <a href="/html/impacto.html">Impacto</a>
         <a href="/html/proposito.html">Propósito</a>
@@ -36,47 +23,63 @@
         <a href="/html/curiosidades.html">Curiosidades</a>
         <a href="/html/quemsomos.html">Quem Somos</a>
         <a href="/html/sejaUm.html">Seja uma pata amiga!</a>
-      </div>
-    </header>
+      </nav>
+      <button id="themeToggle" class="theme-toggle" onclick="toggleTheme()">🌙</button>
+      <button id="mobile-menu-button">☰</button>
+    </div>
+    <div id="mobile-menu">
+      <a href="/html/home.html">Home</a>
+      <a href="/html/impacto.html">Impacto</a>
+      <a href="/html/proposito.html">Propósito</a>
+      <a href="/html/doacoes.html">Doações</a>
+      <a href="/html/curiosidades.html">Curiosidades</a>
+      <a href="/html/quemsomos.html">Quem Somos</a>
+      <a href="/html/sejaUm.html">Seja uma pata amiga!</a>
+    </div>
+  </header>
 
-    <main>
-      <section id="contato">
-        <div class="container">
-          <h2 class="section-title">Fale Conosco ou Seja Voluntário</h2>
-          <p class="section-subtitle">Tem alguma dúvida, sugestão, ou quer se juntar à nossa equipe de voluntários? Preencha o formulário abaixo e entraremos em contato o mais breve possível. Sua participação é muito bem-vinda!</p>
+  <main>
+    <section id="contato">
+      <div class="container">
+        <h2 class="section-title">Fale Conosco</h2>
+        <p class="section-subtitle">Quer ser voluntário, tirar uma dúvida ou enviar uma sugestão? Preencha o formulário abaixo e nossa equipe entrará em contato.</p>
+        
+        <div class="form-container">
           <form id="contact-form">
             <div class="form-group">
-              <label for="name">Nome</label>
-              <input type="text" id="name" name="name" required>
+              <label for="name">Seu Nome</label>
+              <input type="text" id="name" name="name" placeholder="Digite seu nome completo" required>
             </div>
             <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" required>
+              <label for="email">Seu Email</label>
+              <input type="email" id="email" name="email" placeholder="exemplo@email.com" required>
             </div>
             <div class="form-group">
-              <label for="message">Mensagem</label>
-              <textarea id="message" name="message" rows="4" required></textarea>
+              <label for="message">Sua Mensagem</label>
+              <textarea id="message" name="message" rows="5" placeholder="Deixe sua mensagem aqui..." required></textarea>
             </div>
             <div class="form-submit">
               <button type="submit">Enviar Mensagem</button>
             </div>
           </form>
         </div>
-      </section>
-    </main>
 
-    <footer>
-      <div class="container">
-        <p class="logo-footer">Patas Solidárias</p>
-        <div class="social-links">
-          <a href="#">Facebook</a>
-          <a href="#">Instagram</a>
-          <a href="#">Twitter</a>
-        </div>
-        <p>&copy; 2025 Patas Solidárias. Todos os direitos reservados.</p>
       </div>
-    </footer>
-    <script src="../js/script.js"></script>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p class="logo-footer">Patas Solidárias</p>
+      <div class="social-links">
+        <a href="#">Facebook</a>
+        <a href="#">Instagram</a>
+        <a href="#">Twitter</a>
+      </div>
+      <p>&copy; 2025 Patas Solidárias. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+  <script src="../js/script.js"></script>
 </body>
 
 </html>

@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Quem Somos - Patas Solidárias</title>
+  <title>Curiosidades - Patas Solidárias</title>
   <link rel="stylesheet" href="../css/style.css" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
@@ -40,13 +40,17 @@
   </header>
 
   <main>
-    <div class="container">
-      <h1>🐾 Fatos Divertidos de Animais 🐾</h1>
-      <p id="fact">Clique em um botão para ver um fato divertido!</p>
+    <section id="curiosidades">
+        <div class="container">
+            <h1 class="section-title">🐾 Fatos Divertidos de Animais 🐾</h1>
+            <p id="fact" class="section-subtitle">Clique em um botão para ver um fato divertido!</p>
 
-      <button onclick="getAnimalFact('cat')">Fato de Gato 🐱</button>
-      <button onclick="getAnimalFact('dog')">Fato de Cachorro 🐶</button>
-    </div>
+            <div class="fact-buttons">
+                <button class="fact-button" onclick="getAnimalFact('cat')">Fato de Gato 🐱</button>
+                <button class="fact-button" onclick="getAnimalFact('dog')">Fato de Cachorro 🐶</button>
+            </div>
+        </div>
+    </section>
   </main>
 
   <footer>
@@ -64,20 +68,17 @@
   <script src="../js/script.js"></script>
 
  <script>
-    // Lista de animais que a nossa API suporta
-    const animaisDisponiveis = ['dog', 'cat', 'panda', 'fox', 'bird', 'koala'];
+    const animaisDisponiveis = ['dog', 'cat'];
 
     // Função principal que agora espera a tradução para depois exibir
     async function getAnimalFact(animal) {
       const factElement = document.getElementById('fact');
-      // Mensagem de carregamento reflete que estamos buscando e traduzindo
-      factElement.innerText = `Buscando e traduzindo um fato sobre ${animal}... 🕐`;
+      factElement.innerText = `Buscando um fato sobre ${animal}... 🕐`;
 
       const apiUrl = `https://some-random-api.com/facts/${animal}`;
       const extractFact = data => data.fact;
       
       try {
-        // --- PASSO 1: Buscar o fato original ---
         const response = await fetch(apiUrl);
         if (!response.ok) {
           throw new Error(`A API para '${animal}' falhou.`);
@@ -85,9 +86,7 @@
         const data = await response.json();
         const originalFact = extractFact(data);
 
-        // --- MUDANÇA PRINCIPAL: O FATO ORIGINAL NÃO É MAIS EXIBIDO AQUI ---
 
-        // --- PASSO 2: Traduzir o fato antes de exibir qualquer coisa ---
         const encodedFact = encodeURIComponent(originalFact);
         const translateResponse = await fetch(`https://api.mymemory.translated.net/get?q=${encodedFact}&langpair=en|pt-br`);
         
@@ -97,9 +96,7 @@
         
         const translationData = await translateResponse.json();
 
-        // --- PASSO 3: Exibir o resultado final ---
         if (translationData.responseData?.translatedText) {
-          // Se a tradução funcionou, exibe o texto traduzido
           factElement.innerText = translationData.responseData.translatedText;
         } else {
           // Se a tradução falhou, exibe o original com um aviso
@@ -113,7 +110,6 @@
       }
     }
 
-    // Esta função para o botão único continua a mesma
     function gerarFatoAleatorio() {
       const indiceAleatorio = Math.floor(Math.random() * animaisDisponiveis.length);
       const animalSorteado = animaisDisponiveis[indiceAleatorio];
