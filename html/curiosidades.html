@@ -5,6 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Curiosidades - Patas Solidárias</title>
+  <link rel="icon" type="image/png" href="../img/animais-de-estimacao.png">
   <link rel="stylesheet" href="../css/style.css" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
@@ -70,7 +71,6 @@
  <script>
     const animaisDisponiveis = ['dog', 'cat'];
 
-    // Função principal que agora espera a tradução para depois exibir
     async function getAnimalFact(animal) {
       const factElement = document.getElementById('fact');
       factElement.innerText = `Buscando um fato sobre ${animal}... 🕐`;
