@@ -12,7 +12,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Função para o formulário de contato
   const form = document.getElementById("contact-form");
   if (form) {
     form.addEventListener("submit", function (e) {
@@ -22,7 +21,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // --- LÓGICA DO TEMA ---
   const applyTheme = (theme) => {
     if (theme === "dark") {
       document.documentElement.classList.add("dark");
@@ -37,13 +35,12 @@ document.addEventListener("DOMContentLoaded", function () {
     const currentTheme = document.documentElement.classList.contains("dark") ? "light" : "dark";
     localStorage.setItem("theme", currentTheme);
     applyTheme(currentTheme);
-    renderChart(); // Renderiza o gráfico novamente com as cores do novo tema
+    renderChart();
   };
 
   const savedTheme = localStorage.getItem("theme") || "light";
   applyTheme(savedTheme);
   
-  // --- LÓGICA DO GRÁFICO ---
   const chartData = {
     labels: ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho"],
     data: [850, 1100, 980, 1500, 1320, 1750],
@@ -117,7 +114,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  renderChart(); // Renderiza o gráfico na primeira carga
+  renderChart();
 });
 
 // Função para copiar a chave PIX
